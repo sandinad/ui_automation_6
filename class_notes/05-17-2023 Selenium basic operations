@@ -93,6 +93,64 @@ driver.quit(); // closes all the tabs and quits the browser session
 driver.close(); // closes only current tab
 
 
+6. Locating elements
+driver.findElement(); // locating single element
+driver.findElements(); // locating multiple elements
+
+WebElement element = driver.findElement();
+List<WebElement> elements = driver.findElements();
+
+
+7. Validate title and the URL of the web page
+driver.getTitle(); // returns the actual title of the web page as a String
+
+driver.getCurrentUrl(); // return the actual url of the web page as a String
+
+
+
+
+8. Selenium navigation operations
+driver.navigate().back(); 
+driver.navigate().forward(); 
+driver.navigate().refresh();
+driver.navigate().to();
+
+
+driver.navigate().to() vs driver.get()
+-driver.get() has an implicit wait implemented with it and it will wait until the HTML DOM structure (page) is loaded.
+-driver.navigate().to() will not wait for page to be loaded and it has more risks that our test case can fail.
+
+*** to navigate to browser page -> driver.get() is HIGHLY RECOMMENDED!!!
+
+
+
+SELENIUM LOCATORS
+-Selenium provides us 8 different locators to find the elements in the DOM structure and use them in our automation scripts.
+
+1. id
+2. CSS
+3. Xpath
+4. name
+5. className
+6. tagName
+7. linkText
+8. partialLinkText
+
+
+HOW TO LOCATE AN ELEMENT
+1. Have developers tools open -> right click on the page and inspect
+2. Make sure you are on the "Elements" developer tool
+3. Click on "Select Element" icon in the developer tools and make sure it is blue (activated)
+4. Click on the web page element you would like to locate
+
+
+
+validateTitleAndURL
+Go to https://www.apple.com/
+Validate its title is apple
+Validate its URL is https://www.apple.com/
+
+
 
 
 

@@ -32,6 +32,7 @@ public class _01_GoogleTest {
         Thread.sleep(3000);
         driver.quit();
     }
+
     /*
     Go to https://www.google.com/
     Validate that the user see a search input box
@@ -59,5 +60,51 @@ public class _01_GoogleTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.google.com/");
     }
 
+    /*
+    Go to https://www.google.com/
+    Refresh the page
+    Navigate to https://www.amazon.com/
+    Navigate back
+    Navigate forward
+    Validate that the title is "Amazon.com. Spend less. Smile more."
+     */
 
+    @Test
+    public void validateNavigation() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+
+        Thread.sleep(2000);
+        driver.navigate().to("https://www.amazon.com/");
+
+        Thread.sleep(2000);
+        driver.navigate().back();
+
+        Thread.sleep(2000);
+        driver.navigate().forward();
+
+        System.out.println("The title is = " + driver.getTitle());
+        Assert.assertEquals(driver.getTitle(), "Amazon.com. Spend less. Smile more.");
+    }
+
+     /*
+    Go to https://www.google.com/
+    Validate that the user "Google Search" button
+    Validate its text is "Google Search"
+    Validate that it is clickable
+
+    validateGoogleSearchButton
+     */
+
+    @Test
+    public void validateSearchButton(){
+        WebElement searchButton = driver.findElement(By.xpath("(//input[@name='btnK'])[2]"));
+
+        Assert.assertTrue(searchButton.isDisplayed());
+        System.out.println(searchButton.getAttribute("value")); // Google Search
+
+        Assert.assertEquals(searchButton.getAttribute("value"), "Google Search");
+
+        Assert.assertTrue(searchButton.isEnabled());
+    }
 }
