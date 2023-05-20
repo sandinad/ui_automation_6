@@ -33,13 +33,6 @@ BUG: actual did not match expected
 
 
 
-
-
-
-
-
-
-
 SELENIUM LOCATORS:
 -They are used to identify web elements displayed on a web page
 1. id 			-> fastest, unique, most stable
@@ -51,6 +44,10 @@ SELENIUM LOCATORS:
 7. linkText 	->
 8. partialLinkText 	->
 
+
+Locators that uses attributes: id, name, className
+Locators that uses tag name  : tagName
+Locators that uses link text : linkText, partialLinkText
 
 
 
@@ -105,4 +102,63 @@ Assert.assertEquals(kiwi_p.getText(), "Kiwi");
 
 
 kiwi_p.getAttribute("id"); // item_kiwi
+
+
+
+
+
+getText() vs getAttribute() vs getCssValue() vs getTagName()
+-getText() 			  : is used to read the visible text of the element
+-getAttribute(string) : is used to read some attributes of the element
+-getCssValue(string)  : is used to read some css-style values
+-getTagName() 		  : is used to read the tag name of the element
+
+
+
+
+HOW TO VALIDATE A LINK?
+<a href="https://en.wikipedia.org/wiki/Red_apple">Red Apple</a>
+
+
+1. Validate if the link is displayed
+2. Validate if it is enabled (clickable)
+3. Validate its text to be exactly matching requirement
+4. Validate if it navigates user to the right link
+
+
+
+HOW TO LOCATE A LINK?
+<a href="https://en.wikipedia.org/wiki/Red_apple">Red Apple</a>
+
+
+WebElement redAppleLink = driver.findElement(By.linkText("Red Apple"));
+WebElement redAppleLink = driver.findElement(By.partialLinkText("Red"));
+
+
+
+
+
+<a href="https://en.wikipedia.org/wiki/Red_apple">Red Apple</a>
+<a href="https://en.wikipedia.org/wiki/Green_apple">Green Apple</a>
+<a href="https://en.wikipedia.org/wiki/Pineapple">Pineapple</a>
+
+
+driver.findElement(By.linkText("Red Apple")); // one element
+driver.findElement(By.linkText("Green Apple")); // one element
+driver.findElement(By.linkText("Pineapple")); // one element
+
+
+driver.findElements(By.partialLinkText("Apple")); // 2 elements
+driver.findElement(By.partialLinkText("apple")); // one element
+driver.findElements(By.partialLinkText("pple")); // 3 elements
+
+
+
+
+
+WHAT IS USE OF tagName LOCATOR?
+-They are useful for below type of validation
+	-Make sure all the links on the page are not broken
+	-Make sure all the images on the page are not broken
+	-Can be used for h1 as it is highly common to have one h1 tag per page
 
