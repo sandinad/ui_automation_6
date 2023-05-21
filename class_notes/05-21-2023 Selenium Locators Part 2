@@ -91,7 +91,18 @@ Locating parent element and moving to direct child with CSS and xpath!
 XPATH 	-> 		//div[@id='main_header_container']/h1
 CSS 	-> 		div[id='main_header_container']>h1
 
+XPATH 	-> parent/child
+CSS 	-> parent>child
 
+Locating parent element and moving to descendant child with CSS and xpath!
+
+XPATH 	-> parent//child
+CSS 	-> parent child
+
+
+USING INDEXES WITH CSS AND XPATH!
+CSS provides nth-child(index) method 	-> 	.Footer_socials__7h4n1>a:nth-child(2)
+XPATH provides [index] 					->  //div[@class='Footer_socials__7h4n1']/a[2]
 
 
 driver.findElement(By.id("main_heading"));
