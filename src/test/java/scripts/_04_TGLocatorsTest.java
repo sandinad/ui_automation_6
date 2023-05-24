@@ -80,7 +80,7 @@ public class _04_TGLocatorsTest extends Base{
 
     @Test
     public void validateListHeaders(){
-        List<WebElement> listHeaders = driver.findElements(By.xpath(".Xpath_subheader__VOtsU"));
+        List<WebElement> listHeaders = driver.findElements(By.cssSelector(".Xpath_subheader__VOtsU"));
 
         String[] expectedTexts = {"Programming Languages", "Automation Tools"};
 
