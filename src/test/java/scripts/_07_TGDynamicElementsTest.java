@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class _07_TGDynamicElementsTest extends Base {
 
