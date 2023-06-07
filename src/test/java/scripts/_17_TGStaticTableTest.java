@@ -90,11 +90,11 @@ public class _17_TGStaticTableTest extends Base {
 //        }
 
         List<List<String>> table = new ArrayList<>();
-        table.add(Arrays.asList("1", "Amazon", "1,523,000", "USA"));
-        table.add(Arrays.asList("2", "Alibaba", "245,700", "China"));
-        table.add(Arrays.asList("3", "Microsoft", "221,000", "USA"));
-        table.add(Arrays.asList("4", "Apple", "154,000", "USA"));
-        table.add(Arrays.asList("5", "Samsung", "116,915", "S. Korea"));
+        table.add(Arrays.asList("1", "Amazon", "1,523,000", "USA")); // 1st element of my list
+        table.add(Arrays.asList("2", "Alibaba", "245,700", "China")); // 2nd element of my list
+        table.add(Arrays.asList("3", "Microsoft", "221,000", "USA")); // 3rd element of my list
+        table.add(Arrays.asList("4", "Apple", "154,000", "USA")); // 4th element of my list
+        table.add(Arrays.asList("5", "Samsung", "116,915", "S. Korea")); // 5th element of my list
 
         Assert.assertEquals(tableData.get(2).get(1).getText(), table.get(2).get(1));
 

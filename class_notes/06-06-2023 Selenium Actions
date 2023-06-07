@@ -1,0 +1,16 @@
+06-06-2023 Selenium Actions
+
+	To be able to use these operations, we need to create an Actions class instance first and pass driver as an argument to constructor
+
+	SYNTAX:
+		Actions actions = new Actions(driver);
+
+		// Then we can use actions to use any mouse and keyboard action
+
+		actions.contextClick(webElement).perform(); // right clicks
+		actions.doubleClick(webElement).perform(); // double clicks
+
+		actions.dragAndDrop(webElement1, webElement2).perform();
+		// drags the first argument web element and drops it to second argument web element.
+
+		IMPORTANT NOTE: Make sure we have perform() chained after each mouse action or it will not perform the action.
