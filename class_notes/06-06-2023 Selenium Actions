@@ -14,3 +14,43 @@
 		// drags the first argument web element and drops it to second argument web element.
 
 		IMPORTANT NOTE: Make sure we have perform() chained after each mouse action or it will not perform the action.
+
+
+
+    DAY 2 CLASS NOTES:
+
+        	SYNTAX:
+
+        	Actions actions = new Actions(driver);
+
+        	Use cases:
+        	- When we need drag and drop
+        	- If we need right click
+        	- And double-click
+
+        	-> It allows us to simulate real user actions on the application.
+
+        	actions.doubleClick(webElement).perform();
+        	actions.moveToElement(webElement).perform();
+        	actions.dragAndDrop(webElement, webElement2).perform();
+        	actions.clickAndHold(webElement).release().perform();
+
+
+        	IMPORTANT NOTE: Any actions we want to use (both mouse and keyboard) our syntax must always end with .perform()
+
+
+        	FOR KEYBOARD ACTIONS
+
+
+        	SYNTAX:
+
+        	    WebElement inputBox = driver.findElement(By.id("input_box"));
+
+
+                actions.keyDown(Keys.SHIFT)
+                        .sendKeys(inputBox, "h")
+                        .keyUp(Keys.SHIFT)
+                        .pause(Duration.ofSeconds(2))
+                        .sendKeys(inputBox, "ello")
+                        .pause(Duration.ofSeconds(2))
+                        .perform();

@@ -1,12 +1,15 @@
 package scripts;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.Waiter;
+
+import java.time.Duration;
 
 public class _19_TGActionsTest extends Base {
 
@@ -78,7 +81,59 @@ public class _19_TGActionsTest extends Base {
 
         Assert.assertEquals(dragAndDropResult.getText(), "An element dropped here!");
 
-        Waiter.pause(3);
+        Waiter.pause(3);//
+    }
 
+    /**
+     * TEST CASE 3
+     * Go to https://techglobal-training.com/frontend/
+     * Click on the "Actions" card
+     * Go to the input box, and remove if there is an existing text inside -- you can ignore here
+     * First, enter “h” to the input box in upper case using keyboard actions
+     * Then complete the word by sending “ello” as a key
+     * Validate value attribute of the input box is “Hello”
+     */
+
+    @Test
+    public void keyboardActions(){
+
+        WebElement inputBox = driver.findElement(By.id("input_box"));
+
+
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys(inputBox, "h")
+                .keyUp(Keys.SHIFT)
+                .pause(Duration.ofSeconds(2))
+                .sendKeys(inputBox, "ello")
+                .pause(Duration.ofSeconds(2))
+                .perform();
+
+        Assert.assertEquals(inputBox.getAttribute("value"), "Hello");
+    }
+
+    /**
+     * TEST CASE 4
+     * Go to https://techglobal-training.com/frontend/
+     * Click on the "Actions" card
+     * Go to the input box, and remove if there is an existing text inside
+     * Enter “techglobal” to input the box with uppercases
+     * Then, copy the text and paste it again
+     * Validate the value attribute for the search input box is “TECHGLOBALTECHGLOBAL”
+     */
+
+    @Test
+    public void moreKeyboardActions(){
+        WebElement inputBox = driver.findElement(By.id("input_box"));
+
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys(inputBox, "techglobal")
+                .keyUp(Keys.SHIFT)
+                .pause(Duration.ofSeconds(2))
+                .keyDown(Keys.COMMAND)
+                .sendKeys("acvv")
+                .pause(Duration.ofSeconds(2))
+                .perform();
+
+        Assert.assertEquals(inputBox.getAttribute("value"), "TECHGLOBALTECHGLOBAL");
     }
 }
