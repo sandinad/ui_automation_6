@@ -151,7 +151,12 @@ public class _02_ProjectTest extends Base {
 
     @Test(priority = 7, description = "Test Case 07 - Validate the invalid login with the empty credentials")
     public void validateTheInvalidLoginWithEmptyCredentials(){
+        WebElement loginButton = driver.findElement(By.id("login_btn"));
+        loginButton.click();
 
+        WebElement errorMessage = driver.findElement(By.id("error_message"));
+        Assert.assertTrue(errorMessage.isDisplayed());
+        Assert.assertEquals(errorMessage.getText(), "Invalid Username entered!");
     }
 
     @Test(priority = 8, description = "Test Case 08 - Validate the invalid login with the wrong username")
