@@ -191,6 +191,16 @@ public class _02_ProjectTest extends Base {
 
     @Test(priority = 10, description = "Test Case 10 - Validate the invalid login with the wrong username and password")
     public void validateTheInvalidLoginWithTheWrongUsernameAndPassword(){
+        WebElement usernameInputBox = driver.findElement(By.id("username"));
+        WebElement passwordInputBox = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login_btn"));
 
+        usernameInputBox.sendKeys("John");
+        passwordInputBox.sendKeys("1234");
+        loginButton.click();
+
+        WebElement errorMessage = driver.findElement(By.id("error_message"));
+        Assert.assertTrue(errorMessage.isDisplayed());
+        Assert.assertEquals(errorMessage.getText(), "Invalid Username entered!");
     }
 }
