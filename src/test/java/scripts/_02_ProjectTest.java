@@ -44,7 +44,23 @@ public class _02_ProjectTest extends Base {
 
     @Test(priority = 2, description = "Test Case 02 - Validate the valid login")
     public void validateTheValidLogin(){
+        WebElement usernameInputBox = driver.findElement(By.id("username"));
+        WebElement passwordInputBox = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login_btn"));
 
+        usernameInputBox.sendKeys("TechGlobal");
+        passwordInputBox.sendKeys("Test1234");
+        loginButton.click();
+
+        WebElement loginMessage = driver.findElement(By.id("success_lgn"));
+        WebElement logoutButton = driver.findElement(By.id("logout"));
+
+        Assert.assertTrue(loginMessage.isDisplayed());
+        Assert.assertEquals(loginMessage.getText(), "You are logged in");
+
+        Assert.assertTrue(logoutButton.isDisplayed());
+        Assert.assertTrue(logoutButton.isEnabled());
+        Assert.assertEquals(logoutButton.getText(), "LOGOUT");
     }
 
     @Test(priority = 3, description = "Test Case 03 - Validate the logout")
