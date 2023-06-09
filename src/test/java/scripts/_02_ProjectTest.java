@@ -65,7 +65,19 @@ public class _02_ProjectTest extends Base {
 
     @Test(priority = 3, description = "Test Case 03 - Validate the logout")
     public void validateTheLogOut(){
+        WebElement usernameInputBox = driver.findElement(By.id("username"));
+        WebElement passwordInputBox = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login_btn"));
 
+        usernameInputBox.sendKeys("TechGlobal");
+        passwordInputBox.sendKeys("Test1234");
+        loginButton.click();
+
+        WebElement logoutButton = driver.findElement(By.id("logout"));
+        logoutButton.click();
+
+        WebElement loginForm = driver.findElement(By.cssSelector(".LoginForm_form__b4o6J"));
+        Assert.assertTrue(loginForm.isDisplayed());
     }
 
     @Test(priority = 4, description = "Test Case 04 - Validate the Forgot Password? Link and Reset Password modal")
