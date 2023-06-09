@@ -176,7 +176,17 @@ public class _02_ProjectTest extends Base {
 
     @Test(priority = 9, description = "Test Case 09 - Validate the invalid login with the wrong password")
     public void validateTheInvalidLoginWithTheWrongPassword(){
+        WebElement usernameInputBox = driver.findElement(By.id("username"));
+        WebElement passwordInputBox = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login_btn"));
 
+        usernameInputBox.sendKeys("TechGlobal");
+        passwordInputBox.sendKeys("1234");
+        loginButton.click();
+
+        WebElement errorMessage = driver.findElement(By.id("error_message"));
+        Assert.assertTrue(errorMessage.isDisplayed());
+        Assert.assertEquals(errorMessage.getText(), "Invalid Password entered!");
     }
 
     @Test(priority = 10, description = "Test Case 10 - Validate the invalid login with the wrong username and password")
