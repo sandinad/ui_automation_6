@@ -24,11 +24,13 @@ public class _02_ProjectTest extends Base {
         WebElement forgotPasswordLink = driver.findElement(By.linkText("Forgot Password?"));
 
         Assert.assertTrue(usernameInputBox.isDisplayed());
+        Assert.assertTrue(usernameInputBox.isEnabled());
         Assert.assertNotEquals(usernameInputBox.getAttribute("required"), "true");
         Assert.assertTrue(usernameInputBoxLabel.isDisplayed());
         Assert.assertEquals(usernameInputBoxLabel.getText(), "Please enter your username");
 
         Assert.assertTrue(passwordInputBox.isDisplayed());
+        Assert.assertTrue(passwordInputBox.isEnabled());
         Assert.assertNotEquals(passwordInputBox.getAttribute("required"), "true");
         Assert.assertTrue(passwordInputBoxLabel.isDisplayed());
         Assert.assertEquals(passwordInputBoxLabel.getText(), "Please enter your password");
@@ -82,7 +84,34 @@ public class _02_ProjectTest extends Base {
 
     @Test(priority = 4, description = "Test Case 04 - Validate the Forgot Password? Link and Reset Password modal")
     public void validateTheForgotPasswordLinkAndResetPasswordModal(){
+        WebElement forgotPasswordLink = driver.findElement(By.linkText("Forgot Password?"));
+        forgotPasswordLink.click();
 
+        WebElement forgotPasswordModalTitle = driver.findElement(By.id("modal_title"));
+        WebElement forgotPasswordModalCloseButton = driver.findElement(By.cssSelector(".delete"));
+        WebElement forgotPasswordModalHeading = driver.findElement(By.id("sub_heading"));
+        WebElement forgotPasswordModalEmailBox = driver.findElement(By.id("email"));
+        WebElement forgotPasswordModalEmailBoxLabel = driver.findElement(By.cssSelector("label[for='email']"));
+        WebElement forgotPasswordModalSubmitButton = driver.findElement(By.id("submit"));
+
+        Assert.assertTrue(forgotPasswordModalTitle.isDisplayed());
+        Assert.assertEquals(forgotPasswordModalTitle.getText(), "Reset Password");
+
+        Assert.assertTrue(forgotPasswordModalCloseButton.isDisplayed());
+        Assert.assertTrue(forgotPasswordModalCloseButton.isEnabled());
+
+        Assert.assertTrue(forgotPasswordModalHeading.isDisplayed());
+        Assert.assertEquals(forgotPasswordModalHeading.getText(), "Reset Password");
+
+        Assert.assertTrue(forgotPasswordModalEmailBoxLabel.isDisplayed());
+        Assert.assertEquals(forgotPasswordModalEmailBoxLabel.getText(), "Enter your email address and we'll send you a link to reset your password.");
+
+        Assert.assertTrue(forgotPasswordModalEmailBox.isDisplayed());
+        Assert.assertTrue(forgotPasswordModalEmailBox.isEnabled());
+
+        Assert.assertTrue(forgotPasswordModalSubmitButton.isDisplayed());
+        Assert.assertTrue(forgotPasswordModalSubmitButton.isEnabled());
+        Assert.assertEquals(forgotPasswordModalSubmitButton.getText(), "SUBMIT");
     }
 
     @Test(priority = 5, description = "Test Case 05 - Validate the Reset Password modal close button")
