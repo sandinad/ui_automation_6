@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.Waiter;
 
 public class _02_ProjectTest extends Base {
 
@@ -17,7 +16,30 @@ public class _02_ProjectTest extends Base {
 
     @Test(priority = 1, description = "Test Case 01 - Validate the login form")
     public void validateTheLoginForm(){
+        WebElement usernameInputBox = driver.findElement(By.id("username"));
+        WebElement usernameInputBoxLabel = driver.findElement(By.cssSelector("label[for='username']"));
+        WebElement passwordInputBox = driver.findElement(By.id("password"));
+        WebElement passwordInputBoxLabel = driver.findElement(By.cssSelector("label[for='password']"));
+        WebElement loginButton = driver.findElement(By.id("login_btn"));
+        WebElement forgotPasswordLink = driver.findElement(By.linkText("Forgot Password?"));
 
+        Assert.assertTrue(usernameInputBox.isDisplayed());
+        Assert.assertNotEquals(usernameInputBox.getAttribute("required"), "true");
+        Assert.assertTrue(usernameInputBoxLabel.isDisplayed());
+        Assert.assertEquals(usernameInputBoxLabel.getText(), "Please enter your username");
+
+        Assert.assertTrue(passwordInputBox.isDisplayed());
+        Assert.assertNotEquals(passwordInputBox.getAttribute("required"), "true");
+        Assert.assertTrue(passwordInputBoxLabel.isDisplayed());
+        Assert.assertEquals(passwordInputBoxLabel.getText(), "Please enter your password");
+
+        Assert.assertTrue(loginButton.isDisplayed());
+        Assert.assertTrue(loginButton.isEnabled());
+        Assert.assertEquals(loginButton.getText(), "LOGIN");
+
+        Assert.assertTrue(forgotPasswordLink.isDisplayed());
+        Assert.assertTrue(forgotPasswordLink.isEnabled());
+        Assert.assertEquals(forgotPasswordLink.getText(), "Forgot Password?");
     }
 
     @Test(priority = 2, description = "Test Case 02 - Validate the valid login")
