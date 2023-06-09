@@ -132,4 +132,40 @@ public class _02_ProjectTest extends Base {
             Assert.assertTrue(true);
         }
     }
+
+    @Test(priority = 6, description = "Test Case 06 - Validate the Reset Password form submission")
+    public void validateTheResetPasswordFormSubmission(){
+        WebElement forgotPasswordLink = driver.findElement(By.linkText("Forgot Password?"));
+        forgotPasswordLink.click();
+
+        WebElement forgotPasswordModalEmailBox = driver.findElement(By.id("email"));
+        forgotPasswordModalEmailBox.sendKeys("johndoe@gmail.com");
+
+        WebElement forgotPasswordModalSubmitButton = driver.findElement(By.id("submit"));
+        forgotPasswordModalSubmitButton.click();
+
+        WebElement confirmationMessage = driver.findElement(By.id("confirmation_message"));
+        Assert.assertTrue(confirmationMessage.isDisplayed());
+        Assert.assertEquals(confirmationMessage.getText(), "A link to reset your password has been sent to your email address.");
+    }
+
+    @Test(priority = 7, description = "Test Case 07 - Validate the invalid login with the empty credentials")
+    public void validateTheInvalidLoginWithEmptyCredentials(){
+
+    }
+
+    @Test(priority = 8, description = "Test Case 08 - Validate the invalid login with the wrong username")
+    public void validateTheInvalidLoginWithTheWrongUsername(){
+
+    }
+
+    @Test(priority = 9, description = "Test Case 09 - Validate the invalid login with the wrong password")
+    public void validateTheInvalidLoginWithTheWrongPassword(){
+
+    }
+
+    @Test(priority = 10, description = "Test Case 10 - Validate the invalid login with the wrong username and password")
+    public void validateTheInvalidLoginWithTheWrongUsernameAndPassword(){
+
+    }
 }
