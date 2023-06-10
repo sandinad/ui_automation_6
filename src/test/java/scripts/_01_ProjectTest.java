@@ -28,7 +28,7 @@ public class _01_ProjectTest extends Base{
         Assert.assertEquals(contactUsHeading.getText(), "Contact Us");
 
         Assert.assertTrue(contactUsAddress.isDisplayed());
-        Assert.assertEquals(contactUsAddress.getText(), "2860 S River Rd Suite 350, Des Plaines IL 60018");
+        Assert.assertEquals(contactUsAddress.getText(), "2860 S River Rd Suite 480, Des Plaines IL 60018");
 
         Assert.assertTrue(contactUsEmail.isDisplayed());
         Assert.assertEquals(contactUsEmail.getText(), "info@techglobalschool.com");

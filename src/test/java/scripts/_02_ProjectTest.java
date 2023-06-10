@@ -1,11 +1,10 @@
 package scripts;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.Project2Page;
-
-import java.util.NoSuchElementException;
 
 public class _02_ProjectTest extends Base {
 
