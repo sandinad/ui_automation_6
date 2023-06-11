@@ -91,5 +91,26 @@ correct 		wrong 			Invalid Password entered!
 wrong 			wrong 			Invalid Username entered!
 
 
+TestNG Soft Assertions
+-Hard assertions: used to stop the execution if there is failure.
+-Soft assertions: used to verify expected output but do not pause the script execution till the end. And will attach the failure to the report once all the script is executed.
+
+JUnit vs TestNG
+-Initial, JUnit was relased by Apache
+-Then, TestNG was released
+	TestNG = Test New Generation
+-TestNG is more improved version of JUnit
+
+
+
+
+
+
+
+
+
+
+
+
 
 
