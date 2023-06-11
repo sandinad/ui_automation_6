@@ -1,0 +1,51 @@
+
+
+
+06-11-2023 TestNG vs JUnit
+
+
+
+Recap:
+
+Page Object Model
+-It is a design pattern enables programmers (testers) to store all the elements related to a web page in their respective class (object repository)
+-We can also create reusable methods related to this specific page in their respective class
+-@FindBy is used to locate elements
+-PageFactory and its initElements() method is used in the default contructor to introduce all the web elements with our single driver.
+
+
+Advantages:
+	- Reusable
+	- Readability
+	- Maintanence of web elements easier
+
+
+
+
+
+Go to “https://www.etsy.com/”
+Validate the user see below menu item links with expected texts
+    Father’s Day Gifts
+    Jewelry & Accessories
+    Clothing & Shoes
+    Home & Living
+    Wedding & Party
+    Toys & Entertainment
+    Art & Collectibles
+    Craft Supplies
+    Gifts & Gift Cards
+
+
+
+
+Animal a1 = new Animal(); // declaration and initialization
+
+Animal a1; // declaration in the base class
+
+a1 = new Animal(); // initialization in the child class
+
+
+
+
+
+
