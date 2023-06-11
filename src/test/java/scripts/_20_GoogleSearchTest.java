@@ -20,8 +20,8 @@ public class _20_GoogleSearchTest extends Base {
         googleSearchPage.search("canvas painting");
 
         Assert.assertTrue(googleSearchResultsPage.resultTag.isDisplayed());
-        System.out.println(googleSearchResultsPage.resultTag.getText()); // About 1,010,000,000 results (0.60 seconds)
+        String resultTag = googleSearchResultsPage.resultTag.getText(); // About 1,010,000,000 results (0.60 seconds)
+
+        Assert.assertTrue(Integer.parseInt(resultTag.replaceAll("[^0-9]", "").substring(0, 1)) > 0);
     }
-
-
 }
