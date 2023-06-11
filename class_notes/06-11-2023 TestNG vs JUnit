@@ -22,7 +22,7 @@ Advantages:
 
 
 
-
+TASK
 Go to “https://www.etsy.com/”
 Validate the user see below menu item links with expected texts
     Father’s Day Gifts
@@ -43,6 +43,37 @@ Animal a1 = new Animal(); // declaration and initialization
 Animal a1; // declaration in the base class
 
 a1 = new Animal(); // initialization in the child class
+
+
+
+
+TestNG:
+- Unit testing tool we used for annotations, assertions, reports
+- xml files: grouping together the test scripts 
+- DataProvider: used to execute same script with different data
+- Set priority between tests - ordering purposes
+- Help us with parallel testing
+- Dependency between test cases
+
+
+
+
+IGNORING SOME TEST SCRIPTs
+1. Command out or delete the @Test annotation for the script
+	(NOT RECOMMENDED)
+2. Use @Ignore annotation on the top of test you would like ignore
+	SYNTAX:
+		    @Ignore
+    		@Test
+
+3. Use enabled=false property next @Test annotation
+	SYNTAX: @Test(enabled = false)
+
+
+
+DATA PROVIDER ANNOTATION 
+
+
 
 
 
