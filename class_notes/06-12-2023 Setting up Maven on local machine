@@ -1,0 +1,56 @@
+
+
+
+06-12-2023 Setting up Maven on local machine
+
+
+1. Download Maven https://maven.apache.org/
+2. Set up MAVE_HOME
+	NOTE: Make sure JAVA_HOME is set
+
+	MAC: 
+	export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
+	export M2_HOME=/Applications/apache-maven-3.9.2
+	export PATH=$PATH:$M2_HOME/bin
+
+	Check your terminal if it is
+	zsh 	-> touch .zshrc	
+	bash	-> touch .bash_profile
+
+
+	WINDOWS:
+	MAVEN_HOME=path
+	M2_HOME=path
+
+3. Run mvn --version and make sure it is installed
+
+
+
+HOW TO RUN Suites from our Terminal or Command Prompt
+-Open a terminal or cmd
+-Navigate to your repo
+-Make sure you see pom.xml as a file in the directory
+-Run your command 
+	mvn test -PSmoke
+
+
+
+HOW TO RUN Suites on IntelliJ IDEA Terminal
+-Go to your project on IntelliJ IDEA
+-Open IntelliJ IDEA Terminal
+-Run your command 
+	mvn test -PSmoke
+
+
+
+
+
+
+
+
+
+
+
+
+
+
